@@ -23,6 +23,7 @@ Some examples:
 
   # Finds /home/adam/* and /home/adam/subdir/*
   GlobFu.find('*', 'subdir/*', :root => '/home/adam')
+  GlobFu.find(['*', 'subdir/*'], :root => '/home/adam')
 
   # Finds /*.txt but not /*.anything.txt
   GlobFu.find('/*', :suffix => 'txt')

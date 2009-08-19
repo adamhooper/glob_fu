@@ -1,11 +1,9 @@
 module GlobFu
   class << self
     def find(*args, &block)
-      options = if Hash === args.last
-        args.pop
-      else
-        {}
-      end
+      options = (Hash === args.last) ? args.pop : {}
+      args = args.first if Array === args.first
+
       results = do_find(args, options)
 
       if block

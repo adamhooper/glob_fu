@@ -48,6 +48,11 @@ describe(GlobFu) do
       f('x', 'y', :root => prefix).should == ["#{prefix}/x", "#{prefix}/y"]
     end
 
+    it('should allow Array argument') do
+      fs('x', 'y')
+      f(['x', 'y'], :root => prefix).should == ["#{prefix}/x", "#{prefix}/y"]
+    end
+
     it('should remove duplicates') do
       fs('x')
       f('x', 'x', :root => prefix).should == ["#{prefix}/x"]
