@@ -93,6 +93,11 @@ describe(GlobFu) do
       f('x', :root => prefix, :suffix => 'txt', :extra_suffix => 'X').should == []
     end
 
+    it('should need a dot before :extra_suffix') do
+      fs('xX.txt', 'xX.X.txt')
+      f('xX', :root => prefix, :suffix => 'txt', :extra_suffix => 'X').should == [ "#{prefix}/xX.X.txt" ]
+    end
+
     it('should allow :extra_suffix and :optional_suffix in combination') do
       fs('x.X.txt.gz')
       f('x', :root => prefix, :suffix => 'txt', :extra_suffix => 'X', :optional_suffix => 'gz').should == ["#{prefix}/x.X.txt.gz"]

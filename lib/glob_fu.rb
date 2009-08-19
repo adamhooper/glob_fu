@@ -41,11 +41,11 @@ module GlobFu
 
         suffix_regex = ""
         if options[:extra_suffix]
-          suffix_regex << "\.#{Regexp.quote(options[:extra_suffix])}"
+          suffix_regex << "\\.#{Regexp.quote(options[:extra_suffix])}"
         end
-        suffix_regex << "\.#{Regexp.quote(options[:suffix])}"
+        suffix_regex << "\\.#{Regexp.quote(options[:suffix])}"
         if options[:optional_suffix]
-          suffix_regex << "(\.#{Regexp.quote(options[:optional_suffix])})?"
+          suffix_regex << "(\\.#{Regexp.quote(options[:optional_suffix])})?"
         end
 
         regex = %r{(/|^)#{basename_regex}#{suffix_regex}$}
